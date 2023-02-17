@@ -1,0 +1,63 @@
+1.
+    a) df -T
+    b) df -i
+    c) df -h
+
+2.
+ a) sl_pr is soft link, hl_pr is hard link.
+    sl_pr -> 1 link
+    hr_pr -> 2 links
+    The number of times it appears on the file table (FT)
+    hl_pr same inode as pr.txt
+
+ b) cat sl_pr and cat hl_pr:
+        this is a test
+
+    namei sl_pr:
+          f: sl_pr
+          l sl_pr -> pr.txt
+          - pr.txt
+
+    namei hl_pr:
+          f: hl_pr
+          - hl_pr
+
+    readlink sl_pr:
+        pr.txt
+
+    readlink hl_pr: // empty
+
+ c)
+ [pablofc18@archlinux S9]$ stat sl_pr
+ Fichero: sl_pr -> pr.txt
+ Tamaño: 6         	Bloques: 0          Bloque E/S: 4096   enlace simbólico
+ Device: 259,3	Inode: 6424198     Links: 1
+ Acceso: (0777/lrwxrwxrwx)  Uid: ( 1000/pablofc18)   Gid: ( 1000/pablofc18)
+ Acceso: 2022-12-18 20:12:50.207837850 +0100
+ Modificación: 2022-12-18 20:12:42.837705161 +0100
+ Cambio: 2022-12-18 20:12:42.837705161 +0100
+ Creación: 2022-12-18 20:12:42.837705161 +0100
+ [pablofc18@archlinux S9]$ stat hl_pr
+ Fichero: hl_pr
+ Tamaño: 15        	Bloques: 8          Bloque E/S: 4096   fichero regular
+ Device: 259,3	Inode: 6424186     Links: 1
+ Acceso: (0644/-rw-r--r--)  Uid: ( 1000/pablofc18)   Gid: ( 1000/pablofc18)
+ Acceso: 2022-12-18 20:20:09.986449531 +0100
+ Modificación: 2022-12-18 20:12:28.104108083 +0100
+ Cambio: 2022-12-18 20:23:52.435731085 +0100
+ Creación: 2022-12-18 20:12:28.104108083 +0100
+ [pablofc18@archlinux S9]$ cat sl_pr
+ cat: sl_pr: No existe el fichero o el directorio
+ [pablofc18@archlinux S9]$ cat hl_pr
+ this is a test
+ [pablofc18@archlinux S9]$ namei sl_pr
+ f: sl_pr
+ l sl_pr -> pr.txt
+ pr.txt - No existe el fichero o el directorio
+ [pablofc18@archlinux S9]$ namei hl_pr
+ f: hl_pr
+ - hl_pr
+ [pablofc18@archlinux S9]$ readlink sl_pr
+ pr.txt
+ [pablofc18@archlinux S9]$ readlink hl_pr
+ [pablofc18@archlinux S9]$

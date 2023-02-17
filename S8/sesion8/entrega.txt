@@ -1,0 +1,11 @@
+Question 67:
+    Inicio
+    Fin
+
+    - Both, because we redirect the output to the file.
+
+Question 68:
+    - Both did not finish. Because the channel never closes so the child keeps waiting blocked.
+
+Question 69:
+    - Yes, opening and closing channels when we need it.

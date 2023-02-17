@@ -1,0 +1,34 @@
+1:
+    - In /proc/(pid)/stat we can find the minor page fault and major page fault. In cminflt and cmajflt
+
+2:
+    - vmstat -n 1
+    - Swap-in: si
+    - Swap-out: so
+
+3:
+    - fibonacci 10:
+    real	0m0,002s
+    user	0m0,002s
+    sys	0m0,001s
+
+    - fibonacci 20:
+    real	0m0,003s
+    user	0m0,002s
+    sys	0m0,001s
+
+    - fibonacci 30:
+    real	0m0,018s
+    user	0m0,014s
+    sys	0m0,003s
+
+    - fibonacci 40:
+    real	0m0,789s
+    user	0m0,785s
+    sys	0m0,004s
+
+    - fibonacci 50:
+    my computer dies :)
+
+4:
+    - 14

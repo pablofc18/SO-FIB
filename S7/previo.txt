@@ -1,0 +1,26 @@
+1. Which value returns the read call after pressing ^D?
+   - It returns 0, after find a end of file.
+
+2. Write down the command used to redirect standard input/output.
+   - ./es1 < input.txt > output.txt
+
+3. Write down the command used... :
+   - ps -eo pid,user,command | grep 'bash'
+
+4. Done
+
+5. How many bytes are written in each case? What observable differences appear on the screen?
+   - 5 bytes when udinh  the internal machine's representation and 4 converting the number to string. The first one shows the representation of that numbers in ASCII the second one writes the number ok.
+
+6. a) Which function is used to implement the specific read of the device
+managed by each device driver?
+   - The function read_driver_1 for the driver 1 and the read_driver_2 for the driver 2.
+
+b) What are the major and minor? What’s their use? Which major and minor
+use the two device drivers?
+   - Error:
+!!!!!
+make -C /lib/modules/6.0.8-arch1-1/build M=/home/pablofc18/Documentos/SO/S7/deviceDrivers modules
+make[1]: *** /lib/modules/6.0.8-arch1-1/build: No existe el fichero o el directorio.  Alto.
+make: *** [Makefile:11: all] Error 2
+!!!!!

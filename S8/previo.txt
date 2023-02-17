@@ -1,0 +1,27 @@
+1:
+    mknod newPipe p
+    cat > newPipe
+    cat < newPipe
+
+2:
+    An unnamed pipe can only be executed on the same process. (On the same terminal).
+
+3:
+    dup2(4,0);
+    close(4);
+
+4:
+    *createSocket:
+
+    Create an Addr for the socket, and copy the socketId string into it.
+    Save in "socket_fd" the AF_UNIX(Domain) descriptor, the SOCK_STREAM(type) and a 0 as protocol. (socket_fd = socket(AF_UNIX, SOCK_STREAM, 0);
+    Check if the descriptor is < 0 implies error.
+    Saves the return of "bind", which binds the socket with an address, to an integer. If it goes well 0, if not -1.
+    Saves the return of "listen" to an integer, which puts the socket in passive mode so that it can accept an incoming transmission, as long as it is less than the "backlog". If it goes well 0, if not -1.
+
+
+    *serverConnection:
+
+    We pass the socket that we have created in createSocket as a parameter.
+    It executes "accept", which checks if the socket is created, if it is bound and if it is in listening mode.
+    And it accepts it, if it goes well it returns the descriptor, otherwise a -1.
